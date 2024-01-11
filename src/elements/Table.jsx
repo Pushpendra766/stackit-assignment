@@ -10,7 +10,9 @@ const Table = ({ data, selectedColumns }) => {
           <tr>
             <th className="py-2 px-4">Time</th>
             {selectedColumns.map((column) => (
-              <th className="py-2 px-4">{column}</th>
+              <th className="py-2 px-4" key={column}>
+                {column}
+              </th>
             ))}
           </tr>
         </thead>
@@ -21,7 +23,7 @@ const Table = ({ data, selectedColumns }) => {
                 {row[0].split("T")[1].split("+")[0]}
               </td>
               {selectedColumns.map((column) => (
-                <td className="py-2 px-4">
+                <td className="py-2 px-4" key={column}>
                   {row[properties.indexOf(column) + 1]}
                 </td>
               ))}
