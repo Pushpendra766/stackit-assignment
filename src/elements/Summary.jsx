@@ -8,7 +8,7 @@ const Summary = ({ data, selectedColumns }) => {
       {summaryData.map((summary) => {
         return (
           <div
-            className="bg-blue-300 p-3 rounded-md w-fit"
+            className="bg-blue-100 border-blue-900 border p-4 rounded-md w-fit"
             key={summary.property}
           >
             <h1 className="text-lg font-semibold text-center">

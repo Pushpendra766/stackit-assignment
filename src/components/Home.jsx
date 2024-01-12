@@ -13,14 +13,14 @@ const Home = () => {
   const [selectedInterval, setSelectedInterval] = useState("60");
   return (
     <div>
-      <div className="bg-blue-300 px-10 py-3 text-center shadow-lg">
-        <h1 className="text-lg font-semibold text-blue-900">
+      <div className="px-10 py-3 text-center border border-gray-300 bg-gray-100">
+        <h1 className="text-lg font-semibold text-gray-700">
           {" "}
           Data Analysis Tool
         </h1>
       </div>
       <div className="flex flex-col xl:flex-row gap-4 mx-2 md:mx-6 xl:mx-10 py-10">
-        <div className="xl:w-2/12 bg-gray-200 rounded-md p-2 border-red-500 border-2">
+        <div className="xl:w-2/12 rounded-md p-3 border-gray-300 border">
           <LeftPanel
             selectedColumns={selectedColumns}
             updateSelectedColumns={(state) => setSelectedColumns(state)}
@@ -28,7 +28,7 @@ const Home = () => {
             updateSelectedInterval={(state) => setSelectedInterval(state)}
           />
         </div>
-        <div className="xl:w-10/12 rounded-md p-2 border-red-500 border-2">
+        <div className="xl:w-10/12 rounded-md p-3 border-gray-300 border">
           <RightPanel
             selectedColumns={selectedColumns}
             selectedInterval={selectedInterval}
