@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-
-const properties = ["Open", "High", "Low", "Close", "Volume"];
+import { COLUMNS } from "../constants";
 
 const Table = ({ data, selectedColumns }) => {
   return (
@@ -24,7 +23,7 @@ const Table = ({ data, selectedColumns }) => {
               </td>
               {selectedColumns.map((column) => (
                 <td className="py-2 px-4" key={column}>
-                  {row[properties.indexOf(column) + 1]}
+                  {row[COLUMNS.indexOf(column) + 1]}
                 </td>
               ))}
             </tr>

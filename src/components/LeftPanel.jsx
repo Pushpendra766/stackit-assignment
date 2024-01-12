@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
+import DataInterval from "../elements/DataInterval";
+import { COLUMNS } from "../constants";
 
-const LeftPanel = ({ selectedColumns, updateSelectedColumns }) => {
-  const columns = ["Open", "Close", "High", "Low", "Volume"];
-
+const LeftPanel = ({
+  selectedColumns,
+  updateSelectedColumns,
+  selectedInterval,
+  updateSelectedInterval,
+}) => {
   const handleChange = (column, isChecked) => {
     if (isChecked) {
       updateSelectedColumns(selectedColumns.filter((col) => col !== column));
@@ -12,9 +17,10 @@ const LeftPanel = ({ selectedColumns, updateSelectedColumns }) => {
   };
   return (
     <div>
-      <p>Select columns to be included in report :</p>
-      <div className="p-4 flex flex-col gap-4">
-        {columns.map((column) => {
+      <h1 className="text-lg font-semibold text-center py-4">Filters</h1>
+      <p className="font-semibold">Select columns :</p>
+      <div className="p-4 flex flex-wrap gap-4">
+        {COLUMNS.map((column) => {
           const isChecked = selectedColumns.includes(column);
           return (
             <div className="flex gap-2" key={column}>
@@ -29,6 +35,10 @@ const LeftPanel = ({ selectedColumns, updateSelectedColumns }) => {
           );
         })}
       </div>
+      <DataInterval
+        selectedInterval={selectedInterval}
+        updateSelectedInterval={updateSelectedInterval}
+      />
     </div>
   );
 };

@@ -5,7 +5,7 @@ import Table from "../elements/Table";
 import Chart from "../elements/Chart";
 import { API_ENDPOINT } from "../constants";
 
-const RightPanel = ({ selectedColumns }) => {
+const RightPanel = ({ selectedColumns, selectedInterval }) => {
   const [selectedViz, setSelectedViz] = useState("Summary");
 
   const [data, setData] = useState([]);
@@ -24,13 +24,22 @@ const RightPanel = ({ selectedColumns }) => {
     <div>
       <Dropdown selectedViz={selectedViz} setSelectedViz={setSelectedViz} />
       {selectedViz === "Summary" && (
-        <Summary data={data} selectedColumns={selectedColumns} />
+        <Summary
+          data={data.slice(0, selectedInterval)}
+          selectedColumns={selectedColumns}
+        />
       )}
       {selectedViz === "Table" && (
-        <Table data={data} selectedColumns={selectedColumns} />
+        <Table
+          data={data.slice(0, selectedInterval)}
+          selectedColumns={selectedColumns}
+        />
       )}
       {selectedViz === "Chart" && (
-        <Chart data={data.slice(0, 100)} selectedColumns={selectedColumns} />
+        <Chart
+          data={data.slice(0, selectedInterval)}
+          selectedColumns={selectedColumns}
+        />
       )}
     </div>
   );
