@@ -1,8 +1,8 @@
 import React from "react";
 
-const Dropdown = ({ selectedViz, setSelectedViz }) => {
+const Dropdown = ({ selectedViz, updateSelectedViz }) => {
   const handleDropdownChange = (event) => {
-    setSelectedViz(event.target.value);
+    updateSelectedViz(event.target.value);
   };
 
   return (
@@ -15,7 +15,7 @@ const Dropdown = ({ selectedViz, setSelectedViz }) => {
       >
         <option value="Summary">Summary</option>
         <option value="Table">Table</option>
-        <option value="Chart">Chart</option>
+        <option value="Chart">Charts</option>
       </select>
     </div>
   );

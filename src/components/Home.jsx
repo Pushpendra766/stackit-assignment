@@ -19,6 +19,7 @@ const Home = () => {
           Data Analysis Tool
         </h1>
       </div>
+
       <div className="flex flex-col xl:flex-row gap-4 mx-2 md:mx-6 xl:mx-10 py-10">
         <div className="xl:w-2/12 rounded-md p-3 border-gray-300 border">
           <LeftPanel

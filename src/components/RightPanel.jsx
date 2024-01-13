@@ -4,6 +4,7 @@ import Summary from "../elements/Summary";
 import Table from "../elements/Table";
 import Chart from "../elements/Chart";
 import { API_ENDPOINT } from "../constants";
+import ExportToExcel from "../elements/ExportToExcel";
 
 const RightPanel = ({ selectedColumns, selectedInterval }) => {
   const [selectedViz, setSelectedViz] = useState("Summary");
@@ -22,7 +23,13 @@ const RightPanel = ({ selectedColumns, selectedInterval }) => {
 
   return (
     <div>
-      <Dropdown selectedViz={selectedViz} setSelectedViz={setSelectedViz} />
+      <div className="flex  justify-between pr-20 pt-4">
+        <Dropdown
+          selectedViz={selectedViz}
+          updateSelectedViz={(state) => setSelectedViz(state)}
+        />
+        <ExportToExcel data={data} />
+      </div>
       {selectedViz === "Summary" && (
         <Summary
           data={data.slice(0, selectedInterval)}

@@ -1,7 +1,10 @@
-const API_ENDPOINT =
-  "https://api.upstox.com/v2/historical-candle/intraday/NSE_EQ%7CINE848E01016/1minute";
+// const API_ENDPOINT =
+//   "https://api.upstox.com/v2/historical-candle/intraday/NSE_EQ%7CINE848E01016/1minute";
 
-const COLUMNS = ["Open", "Close", "High", "Low", "Volume"];
+const API_ENDPOINT =
+  "https://api.upstox.com/v2/historical-candle/NSE_EQ%7CINE848E01016/1minute/2023-11-13/2023-11-12";
+
+const COLUMNS = ["Open", "High", "Low", "Close", "Volume"];
 
 const COLORS = [
   "rgb(255, 99, 132)",
