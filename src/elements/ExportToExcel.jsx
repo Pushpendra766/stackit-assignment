@@ -42,7 +42,7 @@ const ExportToExcel = ({ data }) => {
       <span>
         <RiFileExcel2Fill />
       </span>
-      Export to Excel{" "}
+      Export
     </button>
   );
 };
