@@ -1,11 +1,20 @@
 import React from "react";
 import * as ExcelJS from "exceljs";
+import { RiFileExcel2Fill } from "react-icons/ri";
 
 const ExportToExcel = ({ data }) => {
   const exportToExcel = () => {
     const workbook = new ExcelJS.Workbook();
     const worksheet = workbook.addWorksheet("SampleSheet");
-
+    worksheet.addRow([
+      "Timestamp",
+      "Open",
+      "Low",
+      "High",
+      "Close",
+      "Volume",
+      "Open Interest",
+    ]);
     data.forEach((row) => {
       worksheet.addRow(row);
     });
@@ -17,7 +26,7 @@ const ExportToExcel = ({ data }) => {
 
       const link = document.createElement("a");
       link.href = URL.createObjectURL(blob);
-      link.download = "SampleData.xlsx";
+      link.download = "stock_data.xlsx";
 
       document.body.appendChild(link);
       link.click();
@@ -27,10 +36,13 @@ const ExportToExcel = ({ data }) => {
 
   return (
     <button
-      className="bg-green-600 px-4 py-1 rounded-full text-white"
+      className="bg-green-600 px-4 py-1 rounded-full text-white flex justify-center gap-2 items-center"
       onClick={exportToExcel}
     >
-      Export to Excel
+      <span>
+        <RiFileExcel2Fill />
+      </span>
+      Export to Excel{" "}
     </button>
   );
 };
